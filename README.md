@@ -1,50 +1,92 @@
-# React + TypeScript + Vite
+# Chat Box Overlay App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An Electron application designed to provide a chat box overlay with additional configurations. It is especially optimized for gamers who use a single screen, allowing them to view and manage their chat while playing without interruptions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Transparent overlay for chat
+- Always on top
+- Configurable user ID
+- Content protection
+- Ignore mouse events
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
 
-- Configure the top-level `parserOptions` property like this:
+   ```sh
+   git clone https://github.com/tu-usuario/chat-box-overlay-app.git
+   cd chat-box-overlay-app
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. Install dependencies:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+   ```sh
+   npm install
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+3. Build the application:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```sh
+   bun run dist:win
+   ```
+
+## Usage
+
+1. Start the application in development mode:
+
+   ```sh
+   npm run dev
+   ```
+
+2. Build the application for production:
+
+   ```sh
+   npm run build
+   ```
+
+3. Package the application for distribution:
+
+   ```sh
+   npm run dist:win
+   ```
+
+## Configuration
+
+The application uses a configuration window to set the user ID. Once the user ID is set, the main window will display the chat box overlay.
+
+## Development
+
+### Folder Structure
+
+- `src/electron`: Contains the Electron main process code.
+- `src/ui`: Contains the React components and UI code.
+
+### Main Process
+
+The main process is defined in `src/electron/main.ts`. It creates the main window and the configuration window, and handles IPC events.
+
+### UI
+
+The UI is built with React and Tailwind CSS. The entry point for the UI is `src/ui/main.tsx`.
+
+### Scripts
+
+- `dev`: Runs the application in development mode.
+- `build`: Builds the application for production.
+- `dist:win`: Packages the application for Windows.
+- `dist:mac`: Packages the application for macOS.
+- `dist:linux`: Packages the application for Linux.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Create a new Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
