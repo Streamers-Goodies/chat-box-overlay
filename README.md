@@ -22,7 +22,7 @@ An Electron application designed to provide a chat box overlay with additional c
 2. Install dependencies:
 
    ```sh
-   npm install
+   bun install
    ```
 
 3. Build the application:
@@ -36,19 +36,22 @@ An Electron application designed to provide a chat box overlay with additional c
 1. Start the application in development mode:
 
    ```sh
-   npm run dev
+   bun run dev:react
+   ```
+   ```sh
+   bun run dev:electron
    ```
 
 2. Build the application for production:
 
    ```sh
-   npm run build
+   bun run build
    ```
 
 3. Package the application for distribution:
 
    ```sh
-   npm run dist:win
+   bun run dist:win
    ```
 
 ## Configuration
@@ -72,7 +75,8 @@ The UI is built with React and Tailwind CSS. The entry point for the UI is `src/
 
 ### Scripts
 
-- `dev`: Runs the application in development mode.
+- `dev:react`: Runs the React application in development mode.
+- `dev:electron`: Runs the Electron application in development mode.
 - `build`: Builds the application for production.
 - `dist:win`: Packages the application for Windows.
 - `dist:mac`: Packages the application for macOS.
